@@ -6,12 +6,12 @@ using UnityEngine;
 public class Puzzles : MonoBehaviour
 {
     public GameObject door;
-    bool solve;
+    public bool solve;
     void Update()
     {
         if(solve)
         {
-            door
+            door.GetComponent<Doors>().openDoor();
         }
     }
 }
