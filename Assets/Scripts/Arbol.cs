@@ -11,6 +11,14 @@ public class Arbol : MonoBehaviour
     public UnityEvent onHit, onDead, onCaida;
     public TextMeshPro textoDaño;
     public int Dropvalue;
+    public GameObject prefabArbol;
+
+
+    public void ResetearHp()
+    {
+        hp = 100;
+
+    }
     public void RecibirDaño(int _daño)
     {
 
@@ -34,13 +42,14 @@ public class Arbol : MonoBehaviour
 
     void Muere()
     {
+        
         onDead.Invoke();                            // cuando se queda sin hp se ejecuta este evento
     }
 
     void Caida()
     {
         GameManager.gm.AgregarMadera(Dropvalue);
-
+        SpawnearOtroArbol();
         onCaida.Invoke();                           // este evento se manda a llamar desde la animación de caida
     }
 
@@ -61,4 +70,17 @@ public class Arbol : MonoBehaviour
             RecibirDaño(daño);                                              // Aplica daño al arbol
         }
     }
+
+    void SpawnearOtroArbol()
+    {
+        Vector3 posicionDelOtroArbol = transform.position;
+        posicionDelOtroArbol.x += Random.Range(3,8);
+        GameObject elOtroArbol = Instantiate(prefabArbol,posicionDelOtroArbol, Quaternion.identity);
+        elOtroArbol.SetActive(true);
+
+        elOtroArbol.transform.localScale = Vector3.one * Random.Range(.7f ,1.5f);
+
+        elOtroArbol.GetComponent<Arbol>().ResetearHp();
+    }
+
 }
