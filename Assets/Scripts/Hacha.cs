@@ -35,4 +35,8 @@ public class Hacha : MonoBehaviour
             spr.sprite = hachaNormal;
         }
     }
+    public void RepararHacha(int _reparacion)
+    {
+        hpHacha.valor += _reparacion;
+    }
 }
