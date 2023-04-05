@@ -10,7 +10,7 @@ public class Arbol : MonoBehaviour
     public int hp;
     public UnityEvent onHit, onDead, onCaida;
     public TextMeshPro textoDaño;
-
+    public int Dropvalue;
     public void RecibirDaño(int _daño)
     {
 
@@ -39,6 +39,8 @@ public class Arbol : MonoBehaviour
 
     void Caida()
     {
+        GameManager.gm.AgregarMadera(Dropvalue);
+
         onCaida.Invoke();                           // este evento se manda a llamar desde la animación de caida
     }
 

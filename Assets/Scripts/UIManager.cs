@@ -9,8 +9,9 @@ public class UIManager : MonoBehaviour
     public IntVariable dañoHacha;
     public IntVariable gastoPorGolpe;
     public IntVariable lvlHacha;
+    public IntVariable Madera;
 
-    public TextMeshProUGUI hpHachaTxt, dañohachaTxt, gastoPorGolpeTxt, lvlHachaTxt;
+    public TextMeshProUGUI hpHachaTxt, dañohachaTxt, gastoPorGolpeTxt, lvlHachaTxt, MaderaTxt;
 
     private void Update()
     {
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
         dañohachaTxt.text = "Daño Hacha " + dañoHacha.valor.ToString();
         gastoPorGolpeTxt.text = "Gasto por Golpe " + gastoPorGolpe.valor.ToString();
         lvlHachaTxt.text = "LVL Hacha " + lvlHacha.valor.ToString();
+        MaderaTxt.text = Madera.valor.ToString();
     }
 
 
