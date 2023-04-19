@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     void Golpear()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Fire1"))
         {
             StartCoroutine(BloquearMovimientoDuranteAnimacion());   //el player no se puede mover cuando esta golpeando
 

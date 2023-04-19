@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class LookMouse : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public GameObject brazoNormal;
+    public KeyCode keyShooter;
     void Update()
     {
-        
+        if(Input.GetKey(keyShooter))
+        {
+            brazoNormal.SetActive(false);
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            brazoNormal.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 }

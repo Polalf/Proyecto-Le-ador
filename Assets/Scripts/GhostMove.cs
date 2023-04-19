@@ -12,6 +12,13 @@ public class GhostMove : MonoBehaviour
     bool comenzar;
     bool viajando;
 
+    public float tiempo;
+    private float timer;
+
+    private void Start()
+    {
+        timer = tiempo;
+    }
     void Update()
     {
         currentPoint = points[numberPoint];
@@ -37,11 +44,18 @@ public class GhostMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            comenzar = true;
+           
             numberPoint++;
-            if(numberPoint == points.Length)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            { 
+                comenzar = true;
+                timer = tiempo;
+            }
+
+            if (numberPoint == points.Length)
             {
-               gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
             else
             {
