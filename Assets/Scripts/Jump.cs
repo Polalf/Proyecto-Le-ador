@@ -32,7 +32,7 @@ public class Jump : MonoBehaviour
 
         if (rb.velocity.y < 0)
         {
-            rb.gravityScale += fallMulti * Time.deltaTime;
+            rb.gravityScale = fallMulti; //* Time.deltaTime;
         }
         else
         {

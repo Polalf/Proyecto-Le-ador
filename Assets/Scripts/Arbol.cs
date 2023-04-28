@@ -12,7 +12,7 @@ public class Arbol : MonoBehaviour
     public TextMeshPro textoDaño;
     public int Dropvalue;
     public GameObject prefabArbol;
-
+    public bool arbol;
 
     public void ResetearHp()
     {
@@ -49,7 +49,11 @@ public class Arbol : MonoBehaviour
     void Caida()
     {
         GameManager.gm.AgregarMadera(Dropvalue);
-        SpawnearOtroArbol();
+        if(arbol)
+        {
+            SpawnearOtroArbol(); 
+        }
+        
         onCaida.Invoke();                           // este evento se manda a llamar desde la animación de caida
     }
 
