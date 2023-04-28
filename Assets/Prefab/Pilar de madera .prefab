@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 8887567259506065253}
   - component: {fileID: 8887567259506065252}
   - component: {fileID: 3688244814769592420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,6 +563,7 @@ MonoBehaviour:
   "textoDa\xF1o": {fileID: 2550467468693879856}
   Dropvalue: 0
   prefabArbol: {fileID: 0}
+  arbol: 0
 --- !u!82 &8136348992030967049
 AudioSource:
   m_ObjectHideFlags: 0

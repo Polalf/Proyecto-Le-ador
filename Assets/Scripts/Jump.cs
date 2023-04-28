@@ -24,15 +24,15 @@ public class Jump : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(2.3f, 0.5f), CapsuleDirection2D.Horizontal, 0, groundLayer);
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(2.3f, 0.8f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        if (rb.velocity.y < 0)
+        if (!isGrounded)
         {
-            rb.gravityScale = fallMulti; //* Time.deltaTime;
+            rb.gravityScale += fallMulti * Time.deltaTime;
         }
         else
         {
