@@ -11,6 +11,7 @@ public class GhostMove : MonoBehaviour
     public Animator animator;
     bool comenzar;
     bool viajando;
+    //GameObject ghost;
 
     public float tiempo;
     private float timer;
@@ -18,14 +19,15 @@ public class GhostMove : MonoBehaviour
     private void Start()
     {
         timer = tiempo;
+        //ghost = gameObject;
     }
     void Update()
     {
-        currentPoint = points[numberPoint];
+        //currentPoint = points[numberPoint];
 
-        Vector3 dir = currentPoint.position - transform.position;
+       // Vector3 dir = currentPoint.position - transform.position;
 
-        transform.position += speed * dir*Time.deltaTime;
+        transform.position = points[numberPoint].transform.position;
 
         /*
         if(transform.position == currentPoint.position)
@@ -33,7 +35,7 @@ public class GhostMove : MonoBehaviour
           //  animator.Play("GhostIdle");
         }*/
 
-        if(comenzar)
+        if (comenzar)
         {
             viajando = transform.position == currentPoint.position;
         }
@@ -48,13 +50,14 @@ public class GhostMove : MonoBehaviour
             numberPoint++;
             timer -= Time.deltaTime;
             if (timer <= 0)
-            { 
+            {
                 comenzar = true;
                 timer = tiempo;
             }
 
             if (numberPoint == points.Length)
             {
+                animator.Play("GhostDesa");
                 gameObject.SetActive(false);
             }
             else

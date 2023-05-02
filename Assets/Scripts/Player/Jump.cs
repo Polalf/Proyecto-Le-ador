@@ -11,7 +11,7 @@ public class Jump : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     bool isGrounded;
-    
+    bool jumping;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,14 +20,18 @@ public class Jump : MonoBehaviour
    
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            jumping = true;
+        }
     }
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(2.3f, 0.8f), CapsuleDirection2D.Horizontal, 0, groundLayer);
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (jumping && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumping = false;
         }
 
         if (!isGrounded)
