@@ -78,7 +78,7 @@ public class Arbol : MonoBehaviour
     void SpawnearOtroArbol()
     {
         Vector3 posicionDelOtroArbol = transform.position;
-        posicionDelOtroArbol.x += Random.Range(3,8);
+        posicionDelOtroArbol.x += Random.Range(-8,8);
         GameObject elOtroArbol = Instantiate(prefabArbol,posicionDelOtroArbol, Quaternion.identity);
         elOtroArbol.SetActive(true);
 

@@ -23,11 +23,11 @@ public class GhostMove : MonoBehaviour
     }
     void Update()
     {
-        //currentPoint = points[numberPoint];
+        currentPoint = points[numberPoint];
 
-       // Vector3 dir = currentPoint.position - transform.position;
+        Vector3 dir = currentPoint.position - transform.position;
 
-        transform.position = points[numberPoint].transform.position;
+        transform.position += dir * speed * Time.deltaTime;
 
         /*
         if(transform.position == currentPoint.position)
@@ -35,11 +35,11 @@ public class GhostMove : MonoBehaviour
           //  animator.Play("GhostIdle");
         }*/
 
-        if (comenzar)
-        {
-            viajando = transform.position == currentPoint.position;
-        }
-        animator.SetBool("viajando", viajando);
+        //if (comenzar)
+        //{
+        //    viajando = transform.position == currentPoint.position;
+        //}
+        //animator.SetBool("viajando", viajando);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +64,7 @@ public class GhostMove : MonoBehaviour
             {
                 animator.Play("GhostDesa");
             }
+           
 
         }
     }
