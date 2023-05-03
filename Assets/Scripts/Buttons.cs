@@ -8,5 +8,6 @@ public class Buttons : MonoBehaviour
     public void CargarEscena(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+        Time.timeScale = 1;
     }
 }

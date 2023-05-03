@@ -17,6 +17,7 @@ public class Arbol : MonoBehaviour
     public void ResetearHp()
     {
         hp = 100;
+        prefabArbol.GetComponent<BoxCollider2D>().enabled=true;
 
     }
     public void RecibirDaño(int _daño)
@@ -81,7 +82,7 @@ public class Arbol : MonoBehaviour
         posicionDelOtroArbol.x += Random.Range(-8,8);
         GameObject elOtroArbol = Instantiate(prefabArbol,posicionDelOtroArbol, Quaternion.identity);
         elOtroArbol.SetActive(true);
-
+        
         elOtroArbol.transform.localScale = Vector3.one * Random.Range(.7f ,1.5f);
 
         elOtroArbol.GetComponent<Arbol>().ResetearHp();
