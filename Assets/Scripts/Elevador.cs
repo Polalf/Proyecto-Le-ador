@@ -5,20 +5,30 @@ using UnityEngine;
 public class Elevador : MonoBehaviour
 {
     public Transform pointA, pointB;
+    public Transform proxPointA, proxPointB;
     public float speed;
     Transform currentPoint;
     public bool targetA;
 
+
     private void Start()
     {
-        currentPoint = pointA;
+        if (targetA)
+        {
+            currentPoint = pointA;
+
+        }
+        else
+        {
+            currentPoint = pointB;
+        }
     }
     void Update()
     {
 
         Vector3 dir = currentPoint.position - transform.position;
-        
-        if(targetA)
+        transform.position += dir * speed * Time.deltaTime;
+        if (targetA)
         {
             currentPoint = pointA;
 
@@ -29,15 +39,16 @@ public class Elevador : MonoBehaviour
         }
 
 
-        if(transform.position == pointA.position)
+        if (transform.position.y <= pointA.position.y && transform.position.y >= proxPointA.position.y)
         {
-             targetA = false;
+            targetA = false;
         }
-        else if(transform.position == pointB.position)
+        else if (transform.position.y >= pointB.position.y && transform.position.y <= proxPointB.position.y)
         {
             targetA = true;
         }
-        transform.position += dir * speed * Time.deltaTime;
+        
       
     }
+    
 }

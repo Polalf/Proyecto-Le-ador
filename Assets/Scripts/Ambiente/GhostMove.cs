@@ -9,8 +9,8 @@ public class GhostMove : MonoBehaviour
     public Transform currentPoint;
     public float speed;
     public Animator animator;
-    bool comenzar;
-    bool viajando;
+    //bool comenzar;
+    //bool viajando;
     //GameObject ghost;
 
     public float tiempo;
@@ -51,7 +51,7 @@ public class GhostMove : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                comenzar = true;
+                //comenzar = true;
                 timer = tiempo;
             }
 
